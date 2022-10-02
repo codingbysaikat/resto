@@ -1,4 +1,5 @@
 <?php
+require_once(get_theme_file_path('/inc/customizer.php'));
 function resto_bootsraping(){
     load_theme_textdomain('resto');
     add_theme_support('title-tag');
@@ -7,6 +8,15 @@ function resto_bootsraping(){
 }
 
 add_action('after_theme_setup','resto_bootsraping');
+function myphpinformation_scripts() {    
+    if( !is_admin() ) {
+      wp_deregister_script( 'jquery' );
+      wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js',false );
+      wp_enqueue_script( 'jquery' );
+    }
+  }
+
+  add_action( 'wp_enqueue_scripts', 'myphpinformation_scripts' );
 
 function resto_assets_scripts(){
 //External CSS
@@ -25,8 +35,10 @@ wp_enqueue_style('fontawesome','https://use.fontawesome.com/releases/v5.8.1/css/
 // main css
 wp_enqueue_style('main-css',get_theme_file_uri('/assets/css/style.min.css'),null,time());
 
+// theme css
+wp_enqueue_style( 'style', get_stylesheet_uri() );
 //script files
-wp_enqueue_script('modernizr','https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js',array('jquery'),time());
+wp_enqueue_script('modernizr','https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js',null,time());
 // external JS
 wp_enqueue_script('external-js-1','https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js',array('jquery'),time(),true);
 // internal JS
@@ -36,6 +48,7 @@ wp_enqueue_script('select2-js',get_theme_file_uri('/assets/vendor/select2/select
 wp_enqueue_script('owlcarousel-js',get_theme_file_uri('/assets/vendor/owlcarousel/owl.carousel.min.js'),array('jquery'),time(),true);
 wp_enqueue_script('owlcarousel-js','https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js',array('jquery'),time(),true);
 wp_enqueue_script('stellar-js',get_theme_file_uri('assets/vendor/stellar/jquery.stellar.js'),array('jquery'),time(),true);
+wp_enqueue_script('tempusdominus-js','https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js',array('jquery'),time(),true);
 
 //Main JS
 wp_enqueue_script('main-js',get_theme_file_uri('/assets/js/app.min.js'),array('jquery'),time(),true);

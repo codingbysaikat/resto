@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-	Resto by GetTemplates.co
-	URL: https://gettemplates.co
--->
 <html lang="en">
 
 <head>

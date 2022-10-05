@@ -30,14 +30,33 @@ function resto_customize_register($wp_customizer){
         'label' => __(' Your Shop Support time','resto'),
         'description'=> __('set your shop support time')
       ));
-      $wp_customizer->add_setting('test_image',array(
-        'default' =>'upload image',
+      $wp_customizer->add_setting('slider_image_1',array(
         'transport' => 'refresh', 
       ));
-      $wp_customizer->add_control( new WP_Customize_Media_Control( $wp_customizer, 'image_control', array(
+      $wp_customizer->add_setting('slider_image_2',array(
+        'transport' => 'refresh', 
+      ));
+      $wp_customizer->add_setting('slider_image_3',array(
+        'transport' => 'refresh', 
+      ));
+      $wp_customizer->add_control( new WP_Customize_Media_Control( $wp_customizer, 'slider_control_1', array(
         'label' => __( 'slider image one', 'resto' ),
         'section' => 'resto_cus_home_sec',
-        'settings'=>'test_image',
+        'settings'=>'slider_image_1',
+        'mime_type' => 'image',
+       
+      ) ) );
+      $wp_customizer->add_control( new WP_Customize_Media_Control( $wp_customizer, 'slider_control_2', array(
+        'label' => __( 'slider image two', 'resto' ),
+        'section' => 'resto_cus_home_sec',
+        'settings'=>'slider_image_2',
+        'mime_type' => 'image',
+       
+      ) ) );
+      $wp_customizer->add_control( new WP_Customize_Media_Control( $wp_customizer, 'slider_control_3', array(
+        'label' => __( 'slider image three', 'resto' ),
+        'section' => 'resto_cus_home_sec',
+        'settings'=>'slider_image_3',
         'mime_type' => 'image',
        
       ) ) );

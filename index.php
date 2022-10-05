@@ -37,13 +37,54 @@
 	    <div class="col-lg-6 hero-right">
 	    	<div class="owl-carousel owl-theme hero-carousel">
 			    <div class="item">
-			    	<img class="img-fluid" src="<?php echo get_template_directory_uri().'/assets/img/hero-1.jpg'?>" alt="">
+				<?php
+				 $image_id_1 = get_theme_mod('slider_image_1');
+				 if(!$image_id_1 == ''){
+					echo wp_get_attachment_image($image_id_1,'slider-size','',array(
+						'class' => 'img-fluid',
+					 ));
+
+				 }else{
+					?>
+					<img class="img-fluid" src="<?php echo get_template_directory_uri().'/assets/img/hero-2.jpg'?>" alt="">
+					<?php
+				 }
+				 
+				  ?>
+			    	
 			    </div>
 			    <div class="item">
-			    	<img class="img-fluid" src="<?php echo get_template_directory_uri().'/assets/img/hero-2.jpg' ?>" alt="">
+				<?php
+				 $image_id_2 = get_theme_mod('slider_image_2'); 
+				 if(!$image_id_2 == ''){
+					echo wp_get_attachment_image($image_id_2,'slider-size','',array(
+						'class' => 'img-fluid',
+					 ));
+
+				 }else{
+					?>
+					<img class="img-fluid" src="<?php echo get_template_directory_uri().'/assets/img/hero-2.jpg'?>" alt="">
+
+					<?php
+				 }
+				 
+				 
+				  ?>
 			    </div>
 			    <div class="item">
-			    	<img class="img-fluid" src="<?php echo get_template_directory_uri().'/assets/img/hero-3.jpg' ?>" alt="">
+				<?php
+				 $image_id_3 = get_theme_mod('slider_image_2'); 
+				 if(!$image_id_3 == ''){
+					echo wp_get_attachment_image($image_id_3,'slider-size','',array(
+						'class' => 'img-fluid',
+					 ));
+				 }else{
+					?>
+					<img class="img-fluid" src="<?php echo get_template_directory_uri().'/assets/img/hero-1.jpg'?>" alt="">
+					<?php
+				 }
+				 
+				  ?>
 			    </div>
 			</div>
 	    </div>

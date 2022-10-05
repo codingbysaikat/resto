@@ -9,6 +9,14 @@ function resto_bootsraping(){
 }
 
 add_action('after_theme_setup','resto_bootsraping');
+
+function register_resto_other(){
+  add_theme_support("post-thumbnails");
+  add_theme_support("custom-logo");
+  add_image_size('slider-size',550,600,true);
+}
+add_action( 'init', 'register_resto_other' );
+
 function myphpinformation_scripts() {    
     if( !is_admin() ) {
       wp_deregister_script( 'jquery' );

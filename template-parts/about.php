@@ -6,6 +6,20 @@
 if(!is_front_page()){
     get_header();
 }
+$page_details = get_pages( array(
+    'post_type' => 'page',
+    'meta_key' => '_wp_page_template',
+    'hierarchical' => 0,
+    'meta_value' => 'template-parts/about.php'
+   ));
+   
+$title;
+$content;
+foreach ( $page_details as $value ) {
+        $title = $value->post_title;
+        $content = $value->post_content;
+     }
+
 ?>
 <section id="gtco-welcome" class="bg-white section-padding">
     <div class="container">
@@ -20,11 +34,11 @@ if(!is_front_page()){
                             About
                         </span>
                         <h2>
-                            Welcome to Resto
+                            <?php echo $title ;?>
                         </h2>
                     </div>
                     <div class="pl-lg-5 ml-md-5">
-                        <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <p><?php $strriped_content = strip_tags($content); echo $strriped_content  ?></p>
                         <h3 class="mt-5">Special Recipe</h3>
                         <div class="row">
                             <div class="col-4">
